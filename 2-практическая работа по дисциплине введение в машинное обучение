@@ -1,0 +1,63 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plp
+import matplotlib.pyplot as pls
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+x = np.arange(0, 4 * np.pi, 0.1)
+y = np.sin(x)
+plt.plot(x,y,
+linewidth=2.0,
+linestyle='--',
+color='#8E44AD',
+alpha=0.7,
+marker='h')
+# Grafik nomi:
+plt.title('sin(x) funksiya grafigi')
+# ×-o'q nomi:
+plt.xlabel("pi")
+#y-o'q nomi:
+plt.ylabel("sin(x)")# Setka qo'shamiz plt.grid()
+plt.show()
+
+
+x = np.arange(0, 4 * np.pi, 0.1)
+sin = np.sin(x)
+cos = np.cos(x)
+
+plt.figure(figsize=(12,6))
+plt.plot(x, sin,
+linewidth=1.5,
+linestyle='-.',
+color='#8E44AD',
+alpha=0.7,
+marker='h')
+
+plt.plot(x, cos,
+linewidth=1.5,
+linestyle=':',
+color='c',
+alpha=0.7,
+marker='v')
+
+plt.title('sin(x) va cos(x) funksiya grafigi')
+plt.xlabel("pi")
+plt.legend(['sin(x)', 'cos(x)'], loc=0, fontsize='x-large')
+plt.grid(color='tomato', alpha=0.5, linestyle='--')
+plt.show()
+
+
+df = pd.read_csv("https://raw.githubusercontent.com/anvarnarz/praktikum_datasets/main/uzbekistan.csv", index_col=0)
+df.columns = ['maydon','aholi']
+df
+
+plt.figure(figsize=(16,6))
+sns.barplot(x=df.index, y=df['aholi'])
+plt.title("O'zbekiston Respublikasi tarkibidagi hududlar aholi soni")
+plt.xlabel("Hudud")
+plt.ylabel("Aholi soni (million)")
+plt.grid()
+plt.xticks(rotation=90)
+plt.show
